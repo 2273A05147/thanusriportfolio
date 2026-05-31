@@ -781,60 +781,176 @@ nav {
 .hero-right    { animation: fadeUp 0.7s 0.2s ease both; }
 
 /* ============================================================
-   RESPONSIVE
+   RESPONSIVE — TABLET (max 1050px)
    ============================================================ */
 @media (max-width: 1050px) {
-  #home {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-  .hero-left {
-    padding: 80px 6% 40px;
-    text-align: center;
-    align-items: center;
-  }
-  .hero-badge  { margin: 0 auto 22px; }
-  .hero-desc   { margin-left: auto; margin-right: auto; }
-  .hero-btns   { justify-content: center; }
-  .hero-socials { justify-content: center; }
-  .hero-right  { height: 420px; }
-  .hero-photo  { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-
-  .about-inner { grid-template-columns: 1fr; gap: 40px; }
-  .skills-row  { grid-template-columns: 1fr 1fr; }
-
-  .proj-card { grid-template-columns: 1fr; }
-  .proj-thumb { width: 100%; height: 200px; }
-
-  .exp-row   { grid-template-columns: 1fr; }
-  #education { grid-template-columns: 1fr; gap: 40px; }
-
-  .contact-bar { flex-direction: column; align-items: flex-start; }
 
   .nav-menu {
     display: none;
     flex-direction: column;
     position: fixed;
-    top: 60px;
-    left: 0;
-    right: 0;
+    top: 60px; left: 0; right: 0;
     background: var(--dark);
     padding: 16px 6%;
     gap: 4px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    z-index: 998;
   }
   .nav-menu.open { display: flex; }
-  .hamburger { display: flex; }
+  .hamburger     { display: flex; }
+
+  #home {
+    height: auto;
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ── Tablet hero photo: centered portrait card ── */
+  .hero-right {
+    order: 1;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: visible;
+    flex-shrink: 0;
+    background: var(--cream);
+    display: flex;
+    justify-content: center;
+    padding: 36px 0 0;
+  }
+  .hero-right::after { display: none; }
+  .hero-photo {
+    position: relative;
+    top: auto; right: auto;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    border-radius: 50%;
+    border: 4px solid var(--gold);
+    box-shadow: 0 8px 32px rgba(201,168,76,0.22), 0 2px 12px rgba(0,0,0,0.12);
+  }
+
+  .hero-left {
+    order: 2;
+    padding: 28px 6% 40px;
+    text-align: center;
+    align-items: center;
+    position: static;
+    width: 100%;
+  }
+  .hero-left::after { display: none; }
+  .hero-badge   { margin: 0 auto 18px; }
+  .hero-desc    { margin-left: auto; margin-right: auto; max-width: 100%; }
+  .hero-btns    { justify-content: center; }
+  .hero-socials { justify-content: center; }
+
+  .about-inner     { grid-template-columns: 1fr; gap: 32px; }
+  .about-contacts  { grid-template-columns: 1fr 1fr; }
+  .skills-row      { grid-template-columns: 1fr 1fr; }
+  .proj-card       { grid-template-columns: 1fr; }
+  .proj-thumb      { width: 100%; height: 200px; }
+  .exp-row         { grid-template-columns: 1fr; }
+  #education       { grid-template-columns: 1fr; gap: 40px; }
+  .contact-bar     { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .contact-bar-mid { flex-direction: column; gap: 8px; }
 }
 
-@media (max-width: 560px) {
-  .skills-row       { grid-template-columns: 1fr; }
-  .about-contacts   { grid-template-columns: 1fr; }
+/* ============================================================
+   RESPONSIVE — MOBILE (max 600px)
+   ============================================================ */
+@media (max-width: 600px) {
 
-  #home, #about, #skills,
-  #projects, #experience,
-  #education, #contact {
-    padding-left: 5%;
-    padding-right: 5%;
+  nav { padding: 0 4%; }
+
+  /* ── Beautiful mobile hero ── */
+  #home {
+    background: var(--cream);
+    padding-top: 60px;
+    min-height: 100svh;
   }
+
+  .hero-right {
+    padding: 32px 0 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: transparent;
+  }
+
+  .hero-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 4px solid var(--gold);
+    box-shadow: 0 0 0 8px rgba(201,168,76,0.12), 0 8px 28px rgba(0,0,0,0.14);
+    object-fit: cover;
+    object-position: top center;
+    position: relative;
+    top: auto; right: auto;
+  }
+
+  .hero-left {
+    padding: 24px 5% 44px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-name1,
+  .hero-name2 { font-size: clamp(2.4rem, 11vw, 3.4rem); }
+  .hero-desc  { font-size: 0.85rem; text-align: center; }
+
+  .hero-btns {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .btn-gold,
+  .btn-outline {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 0.88rem;
+  }
+
+  #about      { padding: 60px 5% 40px; }
+  #skills     { padding: 60px 5% 40px; }
+  #projects   { padding: 60px 5% 40px; }
+  #experience { padding: 60px 5% 40px; }
+  #education  { padding: 60px 5% 40px; }
+  #contact    { padding: 60px 5% 0; }
+
+  .about-inner    { gap: 24px; }
+  .about-contacts { grid-template-columns: 1fr; gap: 16px; }
+  .skills-row     { grid-template-columns: 1fr; gap: 12px; }
+  .exp-row        { gap: 14px; }
+  .exp-card       { padding: 18px; }
+  .proj-thumb     { height: 180px; }
+  .proj-body      { padding: 16px; }
+  .proj-body h3   { font-size: 0.9rem; }
+  #education      { grid-template-columns: 1fr; gap: 32px; }
+  .edu-school     { font-size: 0.82rem; }
+  .contact-item   { font-size: 0.75rem; }
+  .contact-top h2 { font-size: 1.1rem; }
+
+  /* Footer contact bar */
+  .contact-bar     { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .contact-bar-mid { flex-direction: column; gap: 8px; }
+}
+
+/* ============================================================
+   RESPONSIVE — SMALL PHONE (max 380px)
+   ============================================================ */
+@media (max-width: 380px) {
+  .hero-photo  { width: 130px; height: 130px; }
+  .hero-name1,
+  .hero-name2  { font-size: 2.2rem; }
+  .btn-gold,
+  .btn-outline { font-size: 0.82rem; padding: 12px 16px; }
 }
