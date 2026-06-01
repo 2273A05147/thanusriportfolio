@@ -264,32 +264,32 @@ nav {
   color: var(--dark);
 }
 
+/* ============================================================
+   HERO RIGHT — CIRCULAR PHOTO (DESKTOP)
+   ============================================================ */
 .hero-right {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
-/* Very thin left fade - just 15% so photo is clear */
 .hero-right::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 20%;
-  background: linear-gradient(to right, var(--cream) 0%, transparent 100%);
-  z-index: 2;
-  pointer-events: none;
+  display: none;
 }
 
 .hero-photo {
-  position: absolute;
-  top: 0;
-  right: -5%;
-  width: 110%;
-  height: 100%;
+  position: relative;
+  top: auto;
+  right: auto;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border: 5px solid var(--gold);
+  box-shadow: 0 0 0 12px rgba(201, 168, 76, 0.15);
   object-fit: cover;
-  object-position: top left;
+  object-position: top center;
   display: block;
   z-index: 1;
 }
@@ -809,7 +809,6 @@ nav {
     align-items: center;
   }
 
-  /* ── Tablet hero photo: centered portrait card ── */
   .hero-right {
     order: 1;
     width: 100%;
@@ -868,7 +867,6 @@ nav {
 
   nav { padding: 0 4%; }
 
-  /* ── Beautiful mobile hero ── */
   #home {
     background: var(--cream);
     padding-top: 60px;
@@ -939,7 +937,6 @@ nav {
   .contact-item   { font-size: 0.75rem; }
   .contact-top h2 { font-size: 1.1rem; }
 
-  /* Footer contact bar */
   .contact-bar     { flex-direction: column; align-items: flex-start; gap: 10px; }
   .contact-bar-mid { flex-direction: column; gap: 8px; }
 }
