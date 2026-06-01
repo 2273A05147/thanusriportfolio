@@ -122,22 +122,46 @@ nav {
    HERO
    ============================================================ */
 #home {
-  height: 100vh;
-  max-height: 100vh;
+  min-height: 100vh;
   background: var(--cream);
-  display: grid;
-  grid-template-columns: 55% 45%;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 60px;
+  text-align: center;
+}
+
+.hero-right {
+  order: 1;
+  width: auto;
+  height: auto;
   position: relative;
-  align-items: stretch;
+  overflow: visible;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  padding: 36px 0 0;
+}
+
+.hero-right::after { display: none; }
+
+.hero-photo {
+  position: relative;
+  top: auto; right: auto;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 50%;
+  border: 4px solid var(--gold);
+  box-shadow: 0 0 0 10px rgba(201,168,76,0.12), 0 8px 32px rgba(0,0,0,0.13);
 }
 
 .hero-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 70px 5% 40px 8%;
-  z-index: 1;
+  order: 2;
+  padding: 24px 6% 40px;
+  align-items: center;
 }
 
 .hero-badge {
